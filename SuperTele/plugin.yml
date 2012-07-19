@@ -1,3 +1,58 @@
+authors: [NerdsWBNerds, beer71]
+website: http://dev.bukkit.org/server-mods/supertele/
+description: Lets you TP everyone to see your new creation, visit friends, go to a specific coords, and much more!
 name: SuperTele
 main: me.NerdsWBNerds.SuperTele.SuperTele
-version: 1.0
+version: 2.0
+commands:
+  sttp:
+    description: Teleports the first player to the second player.
+    usage: /<command> [name] [name]
+    permission: supertele.sttp
+    permission-message: You don't have permission to use this command.
+    Default: op
+  tpall:
+    description: Teleport everyone online to you or another player.
+    usage: /<command> [name]
+    aliases: [tpa, allhere, tome]
+    permission: supertele.tpall
+    permission-message: You don't have permission to use this command.
+  from:
+    description: Teleports the specified player to you.
+    usage: /<command> [name]
+    aliases: [here, bring, yank]
+    permission: supertele.from
+    permission-message: You don't have permission to use this command.
+  tpc:
+    description: Teleport you or someone else to the specified coordinates.
+    usage: /<command> [name] <x><y><z>
+    aliases: [sendto]
+    permission: supertele.tpc
+    permission-message: You don't have permission to use this command.
+  tpto:
+    description: Teleports you to coordinates, or a player
+    usage: /<command> [name] <x> <y> <z>
+    aliases: [goto]
+    permission: supertele.tpto
+    permission-message: You don't have permission to use this command.
+permissions:
+  supertele.*:
+    description: Gives access to all SuperTele commands.
+    children:
+      supertele.sttp: true
+      supertele.tpc: true
+      supertele.from: true
+      supertele.tpall: true
+      supertele.tpto: true
+  supertele.tpall:
+    Description: Allows a player to teleport everyone to themselves or another player.
+    Default: op
+  supertele.from:
+    Description: Allow the player to  teleport another player to them.
+    Default: op
+  supertele.tpc:
+    Description: Allow a player to teleport either themselves or another player to coordinates.
+    Default: op
+  supertele.tpto:
+    Description: Allow players to only be able to teleport themselves to coords or to another player.
+    Default: op
